@@ -1,0 +1,29 @@
+<!--
+<p>navbar works!</p>
+-->
+
+<!--https://getbootstrap.com/docs/4.0/components/navbar/-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light mr-auto">
+
+  <!--brand as a header-->
+  <div class="navbar-header">
+    <div class="nav-item col-lg-5">MyBlogSite</div>
+  </div>
+
+  <!--TODO check mr-auto to float logout to the right side?-->
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link" [routerLink]="['/home']" href="">
+        home
+      </a>
+      <a class="nav-item nav-link" [routerLink]="['/newuser']" href="">register</a>
+
+       <!--if logged in, show logout and new post button-->
+       <a class="nav-item nav-link" *ngIf="isLoggedIn" (click)="Logout()" [routerLink]="['/home']">logout</a>
+       <a class="nav-item nav-link" *ngIf="isLoggedIn" [routerLink]="['/newpost']">new post</a>
+       
+      <!--if not logged in, show a login button in nav-->
+      <a class="nav-item nav-link" *ngIf="!isLoggedIn" [routerLink]="['/login']">login</a>
+    </div>
+  </div>
+</nav>

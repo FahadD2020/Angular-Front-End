@@ -1,0 +1,37 @@
+<!--<p>newuser works!</p>-->
+
+<form>
+    <div class="form-group col-lg-4">
+        <label for="userId">User Id</label>
+        <input name="userIdInputField" [(ngModel)]="user.userId" class="form-control" id="userId" placeholder="user id ..." />
+    </div>
+    <div class="form-group col-lg-4">
+        <label for="firstName">First Name</label>
+        <input name="firstNameInputField" [(ngModel)]="user.firstName" class="form-control" id="firstName"
+            placeholder="first name ..." />
+    </div>
+    <div class="form-group col-lg-4">
+        <label for="lastName">Last Name</label>
+        <input name="lastNameInputField" [(ngModel)]="user.lastName" class="form-control" id="lastName"
+            placeholder="last name ..." />
+    </div>
+    <div class="form-group col-lg-4">
+        <label for="emailAddress">Email address</label>
+        <input name="emailAddressInputField" [(ngModel)]="user.emailAddress" class="form-control" id="emailAddress"
+            placeholder="your email address ..." />
+    </div>
+    <div class="form-group col-lg-4">
+        <label for="password">Password</label>
+        <input name="passwordInputField" [(ngModel)]="user.password" type="password" class="form-control" id="password"
+            placeholder="your password goes here ..." />
+    </div>
+
+    <!--error message if any from backend will be here-->
+    <div *ngIf="errMsg !== ''" class="alert alert-danger" role="alert">
+        Error: {{ errMsg }}
+    </div>
+
+    <button type="submit" (click)="CreateUser()" class="btn btn-primary">
+        Create Account
+    </button>
+</form>

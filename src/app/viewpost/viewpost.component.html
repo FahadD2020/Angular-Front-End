@@ -1,0 +1,20 @@
+<!--<p>viewpost works!</p>-->
+
+<!--in an ng loop show all posts from backend. View can be without auth even-->
+<!--TODO too many posts! Can we do pagination?-->
+<div *ngIf="posts.length > 0">
+    <app-post *ngFor="let poster of posts" 
+    [userId]="poster.userId" 
+    [content]="poster.content"
+    [headerImage]="poster.headerImage" 
+    [lastUpdated]="poster.lastUpdated" 
+    [currentUser]="poster.currentUserBoolean"
+    [title]="poster.title" [postId]="poster.postId">
+    </app-post>
+</div>
+<div *ngIf="posts.length == 0">No posts in the blog</div>
+
+<!--error message if any from backend will be here-->
+<div *ngIf="errMsg !== ''" class="alert alert-danger" role="alert">
+    Error: {{ errMsg }}
+</div>

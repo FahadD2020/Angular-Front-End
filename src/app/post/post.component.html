@@ -1,0 +1,41 @@
+<!--<p>post works!</p>-->
+
+<!--this diplays a blog post -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card sm-1">
+                <div class="card-header">
+                    <div class="media flex-wrap w-100">
+                        <div class="media-body ml-3">
+                            <h4>Username: {{ userId }}</h4>
+                            <h4>Title: {{ title }}</h4>
+                        </div>
+                        <div class="text-muted small ml-3">
+                            <div>
+                                Last Updated <strong>{{ lastUpdated }}</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <textarea readonly name="" id="contentTextArea" cols="40" rows="8">{{content}}</textarea>
+                </div>
+                <div class="card-footer d-flex flex-wrap align-items-center px-0 pt-0 pb-3">
+                    <div class="px-3 pt-2">
+                        <button type="button" (click)="EditPost()" class="btn btn-primary">
+                            <i class="ion ion-sm-create"></i> Edit
+                        </button>
+                        <button type="button" (click)="DeletePost()" class="btn btn-primary">
+                            <i class="ion ion-md-create"></i> Delete
+                        </button>
+                        <!--incase of err message ...-->
+                        <div *ngIf="errorMsg !== ''" class="alert alert-danger" role="alert">
+                            {{ errorMsg }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
